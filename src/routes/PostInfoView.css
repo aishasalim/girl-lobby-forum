@@ -1,0 +1,61 @@
+.post-info-card{
+    border-radius: 15px;
+    border: 1px solid #242424; 
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+}
+.container {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Align the items to the left and right */
+
+}
+.like-container {
+    display: flex; /* Use flexbox */
+   
+}
+.post-contents{
+    text-align: left;
+}
+
+.like-icon {
+    margin-right: 10px; /* Add some space between the icon and the likes count */
+    margin-bottom: 5px;
+}
+
+.edit-delete-container{
+    margin-top: 13px;
+}
+.edit-delete-container img {
+    margin-right: 10px;
+}
+.comment-section {
+    margin: 2em 0;
+}
+
+.like-icon{
+    cursor: pointer;
+}
+.comment-button {
+    margin-left: 20px;
+}
+
+.comment {
+    text-align: left; 
+    margin-bottom: 2em;
+}
+
+.under-comment {
+    font-size: 0.7em;
+    color:#4a4a4a;
+    font-weight: 700;
+    display: flex;
+}
+.under-comment img{
+    margin-top: 4px;
+}
+.comment-date {
+    margin-left: 10%;
+}
+

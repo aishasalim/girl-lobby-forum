@@ -1,0 +1,132 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #ffffff;
+  --color: #242424;
+
+}
+
+body{
+  display: flex;
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--body-background-color);
+}
+
+#root {
+  padding: 2rem;
+  text-align: center;
+  flex-grow:1; 
+  align-self:stretch
+
+}
+.whole-page{
+  margin: 5em auto;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+  width: 100%;
+}
+
+
+a:hover {
+  color: #535bf2;
+}
+
+.light {
+  --body-background-color: #ffffff;
+}
+
+.dark {
+  --body-background-color: #242424;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.7em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.25s; 
+}
+button:active {
+  transform: scale(0.95); 
+}
+
+:root {
+  --background-color: #ffffff;
+  --color: #242424;
+}
+
+.light {
+  color: var(--color);
+  background-color: var(--background-color);
+}
+
+.dark {
+  color: var(--background-color);
+  background-color: var(--color);
+}
+
+.light .topbar {
+  background-color: var(--color);
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.dark .topbar {
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+.light-link {
+  color: rgba(255, 255, 255, 0.87);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dark-link {
+  color: var(--color);
+  text-decoration: none;
+  font-weight: 600;
+}
+.dark .post-card, .dark .post-info-card, .dark .create-form-card {
+  border: 1px solid rgba(255, 255, 255, 0.87);
+}
+
+.dark, .dark * {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.light button {
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+}
+.dark button {
+  background-color: rgba(255, 255, 255, 0.87);
+  color: #242424;
+}
+
+input {
+  color: black; /* Or any dark color you prefer */
+}

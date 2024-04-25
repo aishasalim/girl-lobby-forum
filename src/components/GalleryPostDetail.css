@@ -1,0 +1,29 @@
+
+.post-card {
+    border-radius: 15px;
+    border: 1px solid #242424; 
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    margin: 3em auto; 
+    text-align: left;
+}
+
+.sorting-buttons {
+  display: flex;
+  justify-content: left;
+}
+
+.sorting-button {
+  margin: 8px 10px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sorting-button.active {
+  background-color: #8e8e8e;
+}
+
+
+  
