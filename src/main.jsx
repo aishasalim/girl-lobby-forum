@@ -10,6 +10,9 @@ import CreateView from './routes/CreateView.jsx';
 import { SearchQueryContext } from './SearchQueryContext';
 import EditView from './routes/EditView.jsx';
 import PostInfoView from './routes/PostInfoView.jsx';
+import LoginView from './routes/LoginView.jsx';
+import SuccessView from './routes/SuccessView.jsx';
+import EmailVerifView from './routes/EmailVerifView.jsx';
 
 const Main = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,6 +27,9 @@ const Main = () => {
             <Route path="create" element={<CreateView />} />
             <Route path="/:id" element={<PostInfoView />} />
             <Route path="/edit/:id" element={<EditView />} />
+            <Route path="login" element={<LoginView />} />
+            <Route path="success" element={<SuccessView />} />
+            <Route path="emailverify" element={<EmailVerifView />} />
           </Route>
         </Routes>
       </SearchQueryContext.Provider>

@@ -11,12 +11,16 @@ const Card = (props) => {
     created_at: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     likes: PropTypes.number,
+    author: PropTypes.string.isRequired, 
   };
   return (
     <>
     <Link style={{ color: "#242424", textDecoration: "none"}} to={'/' + props.id}> 
       <div className="post-card">
+      <div style={{ display: 'flex', justifyContent: 'space-between', height: '45px', gap: '25px' }}>
+        <p>{ props.author }</p>
         <p>Created <TimeAgo created_at={props.created_at} /></p>
+      </div>
         <h3>{props.title}</h3>
         <p>
         <span style={{ marginRight: "10px"}}>

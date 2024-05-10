@@ -28,7 +28,6 @@
   textarea {
     margin: 1em 0;
     height: 25px;
-    width: 90%; /* Set width to 100% */
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;

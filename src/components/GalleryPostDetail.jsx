@@ -3,6 +3,7 @@ import Card from './Card.jsx';
 import { supabase } from '../client.js';
 import './GalleryPostDetail.css';
 import { SearchQueryContext } from '../SearchQueryContext';
+import PropTypes from 'prop-types';
 
 const GalleryPostDetail = () => {
     const [posts, setPosts] = useState([]);
@@ -43,10 +44,19 @@ const GalleryPostDetail = () => {
         }
     };
 
+    Card.propTypes = {
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        title: PropTypes.string.isRequired,
+        likes: PropTypes.number.isRequired,
+        created_at: PropTypes.instanceOf(Date).isRequired,
+      };
+
+
     useEffect(() => {
         fetchPosts();
     }, [activeButton, searchQuery]);
 
+    
     return (
         <>
             {/* Sorting buttons */}
@@ -78,7 +88,7 @@ const GalleryPostDetail = () => {
             <div className="ReadPosts" style={{marginBottom: "80px"}}>
                 {posts && posts.length > 0 ?
                     posts.map((post) => 
-                        <Card key={post.id} id={post.id} title={post.title} likes={post.likes} created_at={post.created_at}/>
+                        <Card key={post.id} id={String(post.id)} title={post.title} likes={post.likes} created_at={post.created_at} author={post.author} />
                     ) : 
                     <h2>No Posts Yet 😞</h2>
                 }

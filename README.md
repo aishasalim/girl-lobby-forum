@@ -1,7 +1,5 @@
-# Web Development Final Project - *Beaded Bag Forum*
+# Web Development Final Project - *Forum Website*
 
-Submitted by: **Aisha Salimgereyeva**
-<<<<<<< HEAD
 
 This web app: **This is a forum website that was created with react**
 
@@ -27,9 +25,8 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [X] Users can only edit and deleted posts or delete comments by entering the secret key, which is set by the user during post creation
-- [ ] Upon launching the web app, the user is assigned a random user ID. It will be associated with all posts and comments that they make and displayed on them.
-- [ ] Users can repost a previous post by referencing its post ID. On the post page of the new post, the referenced post is displayed and linked, creating a thread
+
+- [X] Sign in and Sign out logic with likes connected to the user
 - [X] Users can customize the interface of the web app
 - [ ] Users can share and view web videos
 - [ ] Users can set flags while creating a post. Then users can filter posts by flags on the home feed.
@@ -45,13 +42,4 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 This is a long walkthrough!
-
-1st Part
-
-https://github.com/aishasalim/final-project/assets/87562264/34476b1a-54ca-4858-b7f1-421a980ba129
-
-2nd Part 
-
-https://github.com/aishasalim/final-project/assets/87562264/2339ad2e-3c3c-4e14-a74d-b126b4291ecb
-
 

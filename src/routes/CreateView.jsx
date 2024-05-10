@@ -4,7 +4,7 @@ import { supabase } from '../client.js';
 import PostForm from '../components/PostForm.jsx';
 
 const CreateView = () => {
-  const [post, setPost] = useState({ title: "", text: "", img: "", secret_key: ""});
+  const [post, setPost] = useState({ title: "", text: "", img: "", likes: 0, author: ""});
   const [fileData, setFileData] = useState(null);
 
   const handleFileChange = (event) => {
@@ -34,6 +34,7 @@ const CreateView = () => {
         alert("Please enter both title and text creating a post.");
         return;
       }
+      const user = JSON.parse(localStorage.getItem('user'));
     // Convert the file data to a base64 string if available
     const imgData = fileData ? fileData.split(",")[1] : null;
     await supabase
@@ -42,10 +43,11 @@ const CreateView = () => {
         title: post.title, 
         text: post.text, 
         img: imgData, 
-        secret_key: post.secret_key
+        author:  user.email,
+        likes: 0,
       })
       .select();
-    setPost({ title: "", text: "", img: "", secret_key: "" });
+    setPost({ title: "", text: "", img: "", likes: 0, author: "" });
     setFileData(null);
   
     window.location = "/";
@@ -72,7 +74,6 @@ const CreateView = () => {
         title={post.title}
         text={post.text}
         img={post.img}
-        secretKeyPlaceholder="Enter a secret key"
       />
 
 

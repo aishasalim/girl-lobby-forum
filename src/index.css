@@ -9,7 +9,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --background-color: #ffffff;
+  --background-color: rgba(255, 255, 255,  0.87);
   --color: #242424;
 
 }
@@ -47,7 +47,7 @@ a:hover {
 }
 
 .light {
-  --body-background-color: #ffffff;
+  --body-background-color: rgba(255, 255, 255,  0.87);
 }
 
 .dark {
@@ -74,11 +74,6 @@ button:active {
   transform: scale(0.95); 
 }
 
-:root {
-  --background-color: #ffffff;
-  --color: #242424;
-}
-
 .light {
   color: var(--color);
   background-color: var(--background-color);
@@ -91,7 +86,7 @@ button:active {
 
 .light .topbar {
   background-color: var(--color);
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255,  0.87);
 }
 
 .dark .topbar {
@@ -110,12 +105,12 @@ button:active {
   text-decoration: none;
   font-weight: 600;
 }
-.dark .post-card, .dark .post-info-card, .dark .create-form-card {
+.dark .post-card, .dark .post-info-card, .dark .create-form-card, .dark .login-card {
   border: 1px solid rgba(255, 255, 255, 0.87);
 }
 
 .dark, .dark * {
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--background-color);
 }
 
 .light button {
@@ -127,6 +122,6 @@ button:active {
   color: #242424;
 }
 
-input {
-  color: black; /* Or any dark color you prefer */
+input, .login-card input {
+  color: black;
 }

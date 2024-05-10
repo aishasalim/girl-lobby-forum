@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInput, title, text, img, secretKeyPlaceholder }) => {
+const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInput, title, text, img }) => {
     const inputStyle = {
         color: 'black' // Or any dark color you prefer
     };
@@ -13,7 +13,6 @@ const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInpu
         title: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
         img: PropTypes.string,
-        secretKeyPlaceholder: PropTypes.string,
       };
     return (
         <div className='create-form-card'>
@@ -32,9 +31,6 @@ const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInpu
                     <br />
                     <input type="file" id="file_input" className='img-file-input' name="filename" onChange={handleFileChange} />
                     <br />          
-                    <label>Secret key (Optional) </label><br />
-                    <input style={inputStyle} type="text" id="secret_key" name="secret_key" className='key-input' placeholder={secretKeyPlaceholder} onChange={handleChange} />
-                    <br />
                 </div>
                 <div className="card-actions">
                     <button type="submit">Submit</button>

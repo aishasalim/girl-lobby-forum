@@ -59,7 +59,6 @@ const EditView = () => {
         const updatedPostData = {
             title: post.title,
             text: post.text,
-            secret_key: post.secret_key
         };
     
         if (imgData) {
@@ -103,7 +102,6 @@ const EditView = () => {
                 title={post.title}
                 text={post.text}
                 img={post.img}
-                secretKeyPlaceholder="Enter 'none' to delete secret key"
             />
 
         </div>

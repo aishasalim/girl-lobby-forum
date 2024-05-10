@@ -32,6 +32,24 @@ const TimeAgo = ({ created_at }) => {
     calculateTimeAgo();
   }, [created_at]);
 
+  TimeAgo.propTypes = {
+    created_at: function(props, propName, componentName) {
+      if (!props[propName]) {
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}. Expected a date.`
+        );
+      }
+  
+      const date = new Date(props[propName]);
+  
+      if (isNaN(date.getTime())) {
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}. Expected a valid date.`
+        );
+      }
+    }
+  };
+
   return <span>{timeAgo}</span>;
 };
 
