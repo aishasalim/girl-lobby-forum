@@ -18,40 +18,43 @@ const PostInfoView = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      try {
-        const { data: postData, error: postError } = await supabase
-          .from('posts')
-          .select('*')
-          .eq('id', id)
-          .single();
-  
-        if (postError) {
-          console.error('Error fetching post:', postError.message);
-        } else {
-          setPost(postData);
+        try {
+            const { data: postData, error: postError } = await supabase
+                .from('posts')
+                .select('*')
+                .eq('id', id)
+                .single();
+
+            if (postError) {
+                console.error('Error fetching post:', postError.message);
+            } else {
+                setPost(postData);
+            }
+
+            // Check if user is not null before fetching like status
+            if (user !== null) {
+                const { data: likeData } = await supabase
+                    .from('user_likes')
+                    .select('*')
+                    .eq('user_id', user.id)
+                    .eq('post_id', id);
+
+                if (likeData && likeData.length > 0) {
+                    setPost(prevPost => ({ ...prevPost, hasLiked: true }));
+                } else {
+                    setPost(prevPost => ({ ...prevPost, hasLiked: false }));
+                }
+            }
+        } catch (error) {
+            console.error('Error fetching post:', error.message);
+        } finally {
+            setLoading(false);
         }
-  
-        // Fetch the like status for the current user
-        const { data: likeData } = await supabase
-          .from('user_likes')
-          .select('*')
-          .eq('user_id', user.id)
-          .eq('post_id', id);
-  
-        if (likeData && likeData.length > 0) {
-          setPost(prevPost => ({ ...prevPost, hasLiked: true }));
-        } else {
-          setPost(prevPost => ({ ...prevPost, hasLiked: false }));
-        }
-      } catch (error) {
-        console.error('Error fetching post:', error.message);
-      } finally {
-        setLoading(false);
-      }
     };
-  
+
     fetchPost();
-  }, [id, user.id]);
+}, [id, user]);
+
   
 
   if (loading) {
