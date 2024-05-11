@@ -63,7 +63,6 @@ const LoginView = () => {
             console.error('Error signing in: user is undefined');
             return;
         }
-        console.log('User signed in:', data);
     }
 
 
@@ -85,7 +84,6 @@ const LoginView = () => {
             return;
         }
 
-        console.log('User logged in:', data);
         // Redirect or perform actions after successful login
         window.location = "/";
     }
