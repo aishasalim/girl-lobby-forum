@@ -30,21 +30,6 @@ const PostInfoView = () => {
             } else {
                 setPost(postData);
             }
-
-            // Check if user is not null before fetching like status
-            if (user !== null) {
-                const { data: likeData } = await supabase
-                    .from('user_likes')
-                    .select('*')
-                    .eq('user_id', user.id)
-                    .eq('post_id', id);
-
-                if (likeData && likeData.length > 0) {
-                    setPost(prevPost => ({ ...prevPost, hasLiked: true }));
-                } else {
-                    setPost(prevPost => ({ ...prevPost, hasLiked: false }));
-                }
-            }
         } catch (error) {
             console.error('Error fetching post:', error.message);
         } finally {
@@ -67,42 +52,47 @@ const handleLikeClick = async () => {
     return;
   }
 
-  const newLikesCount = post.likes + (post.hasLiked ? -1 : 1);
+// Check if the user has already liked this post
+const { data: likeData } = await supabase
+  .from('user_likes')
+  .select('*')
+  .eq('user_id', user.id)
+  .eq('post_id', id);
 
-  // Optimistically update the local state
-  setPost(prevPost => ({ ...prevPost, likes: newLikesCount, hasLiked: !prevPost.hasLiked }));
+  if (likeData.length > 0) {
+    // If the user has already liked this post, remove the like
+    await supabase
+      .from('user_likes')
+      .delete()
+      .eq('user_id', user.id)
+      .eq('post_id', id);
 
-  try {
-    // Perform like/unlike action in the database
-    if (post.hasLiked) {
-      await supabase
-        .from('user_likes')
-        .delete()
-        .eq('user_id', user.id)
-        .eq('post_id', id);
+    // Decrease the likes count by 1 in the posts table
+    await supabase
+      .from('posts')
+      .update({ likes: post.likes - 1 })
+      .eq('id', id)
+      .single();
 
-      // Decrease the likes count by 1 in the posts table
-      await supabase
-        .from('posts')
-        .update({ likes: newLikesCount })
-        .eq('id', id)
-        .single();
-    } else {
-      await supabase
-        .from('user_likes')
-        .insert([{ user_id: user.id, post_id: id }]);
+    // Update the local state with the new likes count
+    setPost(prevPost => ({ ...prevPost, likes: prevPost.likes - 1 }));
+  } else {
+    // If the user has not liked this post yet, add the like
+    await supabase
+      .from('user_likes')
+      .insert([
+        { user_id: user.id, post_id: id }
+      ]);
 
-      // Increase the likes count by 1 in the posts table
-      await supabase
-        .from('posts')
-        .update({ likes: newLikesCount })
-        .eq('id', id)
-        .single();
-    }
-  } catch (error) {
-    // Revert back the local state if there's an error
-    setPost(prevPost => ({ ...prevPost, likes: prevPost.likes, hasLiked: !prevPost.hasLiked }));
-    console.error('Error liking/unliking post:', error.message);
+    // Increase the likes count by 1 in the posts table
+    await supabase
+      .from('posts')
+      .update({ likes: post.likes + 1 })
+      .eq('id', id)
+      .single();
+
+    // Update the local state with the new likes count
+    setPost(prevPost => ({ ...prevPost, likes: prevPost.likes + 1 }));
   }
 };
 
