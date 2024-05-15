@@ -54,15 +54,6 @@ const LoginView = () => {
             }
           })
     
-        if (error) {
-            console.error('Error signing in with Google:', error);
-            return;
-        }
-    
-        if (!data) {
-            console.error('Error signing in: user is undefined');
-            return;
-        }
     }
 
 

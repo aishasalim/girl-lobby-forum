@@ -5,10 +5,14 @@ import './GalleryPostDetail.css';
 import { SearchQueryContext } from '../SearchQueryContext';
 import PropTypes from 'prop-types';
 
+import SearchBar from "./SearchBar.jsx";
+
+
 const GalleryPostDetail = () => {
     const [posts, setPosts] = useState([]);
     const [activeButton, setActiveButton] = useState(null);
-    const { searchQuery } = useContext(SearchQueryContext);
+    const { searchQuery, setSearchQuery  } = useContext(SearchQueryContext);
+
 
     const handleButtonClick = (buttonId) => {
         setActiveButton((prevActiveButton) => {
@@ -59,6 +63,11 @@ const GalleryPostDetail = () => {
     
     return (
         <>
+        
+        <div className="ghost-searchbar" >
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </div>
+
             {/* Sorting buttons */}
             <div className="sorting-buttons">
                 <h3 className='order-by'>Order by: </h3>
@@ -86,6 +95,7 @@ const GalleryPostDetail = () => {
             </div>
             {/* Display posts */}
             <div className="ReadPosts" style={{marginBottom: "80px"}}>
+            <hr/>
                 {posts && posts.length > 0 ?
                     posts.map((post) => 
                         <Card key={post.id} id={String(post.id)} title={post.title} likes={post.likes} created_at={post.created_at} author={post.author} />

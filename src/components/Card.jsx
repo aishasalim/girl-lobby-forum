@@ -32,6 +32,7 @@ const Card = (props) => {
         </p>
       </div>
     </Link> 
+    <hr />
     </>
   );
 };

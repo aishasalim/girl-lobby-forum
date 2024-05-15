@@ -26,10 +26,10 @@ body{
 #root {
   padding: 2rem;
   text-align: center;
-  flex-grow:1; 
-  align-self:stretch
-
+  flex-grow: 1; 
+  align-self: stretch
 }
+
 .whole-page{
   margin: 5em auto;
 }
@@ -105,8 +105,12 @@ button:active {
   text-decoration: none;
   font-weight: 600;
 }
-.dark .post-card, .dark .post-info-card, .dark .create-form-card, .dark .login-card {
+.dark .post-info-card, .dark .login-card {
   border: 1px solid rgba(255, 255, 255, 0.87);
+}
+
+.dark hr {
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .dark, .dark * {

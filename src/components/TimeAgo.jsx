@@ -11,24 +11,25 @@ const TimeAgo = ({ created_at }) => {
       const minutes = Math.floor(diff / (1000 * 60));
       const hours = Math.floor(minutes / 60);
       const days = Math.floor(hours / 24);
-      const remainingHours = hours % 24;
-      const remainingMinutes = minutes % 60;
-
+      const months = Math.floor(days / 30);
+  
       let timeAgoString = '';
-
-      if (days > 0 || hours > 0) {
-        timeAgoString += `${days > 0 ? `${days} day${days > 1 ? 's' : ''}` : ''}`;
-        if (remainingHours > 0) {
-          timeAgoString += `${days > 0 ? ' and ' : ''}${remainingHours} hour${remainingHours > 1 ? 's' : ''}`;
-        }
-        timeAgoString += ' ago';
+  
+      if (months > 0) {
+        timeAgoString += `${months} month${months > 1 ? 's' : ''} ago`;
+      } else if (days > 0) {
+        timeAgoString += `${days} day${days > 1 ? 's' : ''} ago`;
+      } else if (hours > 0) {
+        timeAgoString += `${hours} hour${hours > 1 ? 's' : ''} ago`;
+      } else if (minutes > 0) {
+        timeAgoString += `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
       } else {
         timeAgoString = 'just now';
       }
-
+  
       setTimeAgo(timeAgoString);
     };
-
+  
     calculateTimeAgo();
   }, [created_at]);
 

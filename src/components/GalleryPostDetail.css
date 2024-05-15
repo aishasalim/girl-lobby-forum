@@ -1,11 +1,11 @@
-
 .post-card {
-    border-radius: 15px;
-    border: 1px solid #242424; 
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px 40px;
-    margin: 3em auto; 
-    text-align: left;
+  padding: 20px 40px;
+  margin: 1em auto; 
+  text-align: left;
+}
+.post-card:hover {
+  background-color: #f6f6f6;
+  border-radius: 8px;
 }
 
 .sorting-buttons {
@@ -26,4 +26,14 @@
 }
 
 
+@media screen and (max-width: 620px) {
+  .ghost-searchbar {
+   margin: 3em 0;
+  }
+}
+@media (min-width: 620px) {
+  .ghost-searchbar input[type="text"] {
+    display: none;
+  }
+}
   

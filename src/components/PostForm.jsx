@@ -15,7 +15,7 @@ const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInpu
         img: PropTypes.string,
       };
     return (
-        <div className='create-form-card'>
+        <div className=''>
             <form onSubmit={handleSubmit}>
                 <div className="card-content">
                     <label>Title</label> <br />

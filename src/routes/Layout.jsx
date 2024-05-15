@@ -3,33 +3,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Layout.css';
 import { SearchQueryContext } from '../SearchQueryContext';
 import { useTheme } from './Theme'; 
-import PropTypes from 'prop-types';
 import { supabase } from '../client.js'
-
-
-const SearchBar = ({ searchQuery, setSearchQuery }) => {
-    return (
-        <input
-            style={{color: 'black'}}
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-        />
-    );
-};
+import SearchBar from "../components/SearchBar.jsx";
 
 const Layout = () => {
     const { searchQuery, setSearchQuery } = useContext(SearchQueryContext);
     const { darkMode, toggleTheme } = useTheme();
     const [userInfo, setUserInfo] = useState({});
     const [isSignedIn, setIsSignedIn] = useState();
-
-  
-    SearchBar.propTypes = {
-        searchQuery: PropTypes.string.isRequired,
-        setSearchQuery: PropTypes.func.isRequired,
-      };
 
       useEffect(() => {
         const getUserData = async () => { 
@@ -116,9 +97,9 @@ const Layout = () => {
                         </div>
 
                         <ul className="dropdown-point">
-                            <li><a onClick={() => signOut()} className="dropdown-link">Log out</a></li>
+                            <li><span onClick={() => signOut()} className="dropdown-link">Log out</span></li>
                             <hr />
-                            <li><a href="#" className="dropdown-link">Update</a></li>
+                            <li><Link to={`/profile/${JSON.parse(localStorage.getItem(`user`))?.id ?? 'defaultId'}`}><span className="dropdown-link">Profile</span></Link></li>
                         </ul>
 
                     </li>

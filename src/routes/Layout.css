@@ -119,12 +119,14 @@ input:checked + .slider:before {
   width: 100px;
 }
 
-.dropdown .dropdown-point a {
+.dropdown .dropdown-point span{
   color: #242424; /* Light text */
   margin: 1em 0;
-  margin-right: 10px;
+  margin-right: 0px;
   text-decoration: none;
   display: block;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .dropdown:hover .dropdown-point {
@@ -135,6 +137,20 @@ input:checked + .slider:before {
   background-color: #242424; 
   border: 1px solid rgba(255, 255, 255, 0.87); 
 }
-.dark .dropdown .dropdown-point a {
+.dark .dropdown .dropdown-point span {
   color: rgba(255, 255, 255, 0.87);
+}
+
+
+@media screen and (max-width: 620px) {
+  .search input[type="text"]  {
+    display: none;
+  }
+  .create-post-link {
+    margin-left: 0px;
+  }
+  .whole-page{
+    margin-top: 2em;
+  }
+
 }
