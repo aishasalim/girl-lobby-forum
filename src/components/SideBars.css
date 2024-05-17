@@ -1,0 +1,46 @@
+.leftbar{
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #f6f6f6;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #ccc;
+}
+
+.rightbar{
+    width: 250px;
+    border-radius: 15px;
+    background-color: #f6f6f6;
+    position: fixed;
+    overflow: auto;
+    right: 0;
+    top: 0;
+    margin-top: 5em;
+    margin-right: 1em;
+    min-height: 200px;
+}
+.dark .rightbar, .dark .leftbar{
+    background-color: #3d3d3d;
+}
+
+@media screen and (max-width: 900px) {
+    .leftbar {
+      display: none;
+    }
+    .whole-page {
+      margin-left: 0;
+    }
+  }
+
+@media screen and (max-width: 1200px) {
+  .rightbar {
+      display: none;
+  }
+  .whole-page {
+      margin-right: 0;
+  }
+}

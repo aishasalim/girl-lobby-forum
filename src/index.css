@@ -32,6 +32,8 @@ body{
 
 .whole-page{
   margin: 5em auto;
+  /* margin-left: 250px;
+  margin-right: 250px; */
 }
 
 a {
@@ -105,7 +107,7 @@ button:active {
   text-decoration: none;
   font-weight: 600;
 }
-.dark .post-info-card, .dark .login-card {
+.dark .login-card {
   border: 1px solid rgba(255, 255, 255, 0.87);
 }
 

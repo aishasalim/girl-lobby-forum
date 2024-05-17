@@ -5,6 +5,8 @@ import { SearchQueryContext } from '../SearchQueryContext';
 import { useTheme } from './Theme'; 
 import { supabase } from '../client.js'
 import SearchBar from "../components/SearchBar.jsx";
+import LeftBar from "../components/LeftBar.jsx";
+import RightBar from "../components/RightBar.jsx"
 
 const Layout = () => {
     const { searchQuery, setSearchQuery } = useContext(SearchQueryContext);
@@ -49,7 +51,10 @@ const Layout = () => {
     
       
     return (
+        <>
         <div>
+        {/* <LeftBar/>
+        <RightBar/> */}
         <div className="topbar">
             <nav>
             <ul>
@@ -112,6 +117,7 @@ const Layout = () => {
             <Outlet />
         </div>
         </div>
+        </>
     );
 };
 

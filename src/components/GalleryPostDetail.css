@@ -8,6 +8,10 @@
   border-radius: 8px;
 }
 
+.dark .post-card:hover {
+  background-color: #353535;
+}
+
 .sorting-buttons {
   display: flex;
   justify-content: left;
