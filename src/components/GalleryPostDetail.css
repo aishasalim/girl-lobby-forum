@@ -1,20 +1,25 @@
-.post-card {
+.post-container {
   padding: 20px 40px;
   margin: 1em auto; 
   text-align: left;
 }
-.post-card:hover {
-  background-color: #f6f6f6;
+.post-container:hover {
+  background-color: #e8e6e6;
   border-radius: 8px;
 }
 
-.dark .post-card:hover {
+.dark .post-container:hover, 
+.dark .post-container:hover p, 
+.dark .post-container:hover h3,  
+.dark .post-container:hover div,
+.dark .post-container:hover span,
+.dark .post-container:hover svg {
   background-color: #353535;
 }
 
 .sorting-buttons {
   display: flex;
-  justify-content: left;
+  align-items: center;
 }
 
 .sorting-button {
@@ -24,9 +29,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
-.sorting-button.active {
-  background-color: #8e8e8e;
+.sort-by-date, .sort-by-oldest, .sort-by-name {
+  width: 120px;
 }
 
 

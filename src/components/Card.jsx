@@ -16,7 +16,7 @@ const Card = (props) => {
   return (
     <>
     <Link style={{ color: "#242424", textDecoration: "none"}} to={'/' + props.id}> 
-      <div className="post-card">
+      <div className="post-container">
      <p>{ props.author }</p>
         
         <h3>{props.title}</h3>

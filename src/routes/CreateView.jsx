@@ -64,7 +64,7 @@ const CreateView = () => {
   return (
     <>
     <div className='main-block'>
-      <h2>Create a post about beads bag you made! 📿👝 </h2>
+      <h2>Share your thoughts with the girls! </h2>
 
       <PostForm
         handleSubmit={createPost}

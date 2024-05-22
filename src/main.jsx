@@ -15,6 +15,10 @@ import SuccessView from './routes/SuccessView.jsx';
 import EmailVerifView from './routes/EmailVerifView.jsx';
 import ProfileView from './routes/ProfileView.jsx';
 
+import NewestPosts from './routes/NewestPosts.jsx';
+import OldestPosts from './routes/OldestPosts.jsx';
+import PopularPosts from './routes/PopularPosts.jsx';
+
 const Main = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -32,6 +36,10 @@ const Main = () => {
             <Route path="success" element={<SuccessView />} />
             <Route path="emailverify" element={<EmailVerifView />} />
             <Route path="profile/:id" element={<ProfileView />} />
+
+            <Route path="/newest" element={<NewestPosts />} />
+            <Route path="/oldest" element={<OldestPosts />} />
+            <Route path="/popular" element={<PopularPosts />} />
           </Route>
         </Routes>
       </SearchQueryContext.Provider>

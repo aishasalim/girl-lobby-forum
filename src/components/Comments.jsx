@@ -185,7 +185,7 @@ const likeComment = async (commentId) => {
         }
 
 
-            <input style={{color: "black"}} className='comment-input' type="text" name="comment_text" placeholder='Add a comment' value={comment.comment_text} onChange={handleChange} />
+            <input style={{color: "black", backgroundColor: "white"}} className='comment-input' type="text" name="comment_text" placeholder='Add a comment' value={comment.comment_text} onChange={handleChange} />
             <button className='comment-button' onClick={createComment}>Send</button>
         </div>
         </>

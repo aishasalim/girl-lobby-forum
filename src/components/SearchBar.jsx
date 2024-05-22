@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
     return (
         <input
-            style={{color: 'black'}}
+            style={{color: 'black', backgroundColor: 'white'}}
             type="text"
             placeholder="Search"
             value={searchQuery}

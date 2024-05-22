@@ -19,10 +19,10 @@ const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInpu
             <form onSubmit={handleSubmit}>
                 <div className="card-content">
                     <label>Title</label> <br />
-                    <input style={inputStyle} type="text" id="title" name="title" className='title-input' placeholder="What beads bag are you interested in?" value={title} onChange={handleChange} />
+                    <input style={inputStyle} type="text" id="title" name="title" className='title-input' placeholder="What do you want to talk about?" value={title} onChange={handleChange} />
                     <br />
                     <label>Text</label><br />
-                    <textarea style={inputStyle} className='text-input' id="text" name="text" placeholder="Tell us about the beads bag you made!" value={text} onChange={handleChange} />
+                    <textarea style={inputStyle} className='text-input' id="text" name="text" placeholder="Tell your story!" value={text} onChange={handleChange} />
                     <br />
 
                     <label>Image (Optional) </label><br />
