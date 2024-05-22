@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInput, title, text, img }) => {
-    const inputStyle = {
-        color: 'black' // Or any dark color you prefer
-    };
+   
     PostForm.propTypes = {
         handleSubmit: PropTypes.func.isRequired,
         handleChange: PropTypes.func.isRequired,
@@ -19,10 +17,10 @@ const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInpu
             <form onSubmit={handleSubmit}>
                 <div className="card-content">
                     <label>Title</label> <br />
-                    <input style={inputStyle} type="text" id="title" name="title" className='title-input' placeholder="What do you want to talk about?" value={title} onChange={handleChange} />
+                    <input type="text" id="title" name="title" className='title-input' placeholder="What do you want to talk about?" value={title} onChange={handleChange} />
                     <br />
                     <label>Text</label><br />
-                    <textarea style={inputStyle} className='text-input' id="text" name="text" placeholder="Tell your story!" value={text} onChange={handleChange} />
+                    <textarea style={{color: 'black', backgroundColor: 'white'}} className='text-input' id="text" name="text" placeholder="Tell your story!" value={text} onChange={handleChange} />
                     <br />
 
                     <label>Image (Optional) </label><br />

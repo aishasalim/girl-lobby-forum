@@ -22,6 +22,11 @@ body{
   min-height: 100vh;
 }
 
+input[type="text"] {
+  color: black;
+  background-color: white;
+}
+
 #root {
   padding: 2rem;
   text-align: center;
