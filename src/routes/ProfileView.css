@@ -1,0 +1,36 @@
+.profile-container{
+    margin-right: 290px;
+    margin-top: 3.5em;
+}
+.profile-rb-container {
+    display: flex;
+    justify-content: space-between; 
+    margin: 1em;
+    gap: 30px;
+}
+.overview-container {
+    display: flex;
+    gap: 30px;
+    margin-left: 30px;
+    margin-top: 2em;
+}
+.profile-nickname-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width: 1200px) {
+    .rightbar {
+        display: none;
+    }
+    .profile-container {
+        margin-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .profile-rb-container {
+        display: none;
+    }
+}

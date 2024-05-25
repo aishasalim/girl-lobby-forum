@@ -122,7 +122,11 @@ const { data: likeData } = await supabase
       <>
       <div className='post-info-card'>
           <div className='post-contents'>
-                <p style={{textAlign: 'right'}}>{post.author}</p>
+                <p className="link-to-profile" >
+                <Link to={`/profile/${post.author_nickname}`}>
+                  {post.author_nickname}
+                </Link>
+                </p>
               <h2>{post.title}</h2>
               {post.img ? (
                 <img src={post.img.startsWith('http') ? post.img : `data:image/jpeg;base64,${post.img}`} alt={post.title} width="50%" style={{borderRadius: "10px"}}/>

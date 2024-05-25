@@ -35,7 +35,7 @@ const Main = () => {
             <Route path="login" element={<LoginView />} />
             <Route path="success" element={<SuccessView />} />
             <Route path="emailverify" element={<EmailVerifView />} />
-            <Route path="profile/:id" element={<ProfileView />} />
+            <Route path="profile/:nickname" element={<ProfileView />} />
 
             <Route path="/newest" element={<NewestPosts />} />
             <Route path="/oldest" element={<OldestPosts />} />

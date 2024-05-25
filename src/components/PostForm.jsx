@@ -20,7 +20,7 @@ const PostForm = ({ handleSubmit, handleChange, handleFileChange, clearImageInpu
                     <input type="text" id="title" name="title" className='title-input' placeholder="What do you want to talk about?" value={title} onChange={handleChange} />
                     <br />
                     <label>Text</label><br />
-                    <textarea style={{color: 'black', backgroundColor: 'white'}} className='text-input' id="text" name="text" placeholder="Tell your story!" value={text} onChange={handleChange} />
+                    <textarea style={{color: 'black', backgroundColor: 'white', font: "sans-serif"}} className='text-input' id="text" name="text" placeholder="Tell your story!" value={text} onChange={handleChange} />
                     <br />
 
                     <label>Image (Optional) </label><br />

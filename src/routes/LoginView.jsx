@@ -82,7 +82,7 @@ const LoginView = () => {
 
     return (
         <>
-        <h2>Explore beaded world!</h2>
+        <h2>Explore the girl forum!</h2>
         <div className="login-container">
             <div className="login-card">
                 <div className="buttons">

@@ -23,20 +23,20 @@ const LeftBar = () => {
     <div className='leftbar'>
       <ul>
         <Link to="/">
-          <li className={`leftbar-link ${isActive('/') ? 'active' : ''}`}>Home</li>
+          <li className={`leftbar-link ${isActive('/') ? 'active' : ''}`}> 🏠 Home</li>
         </Link>
         <Link to={isSignedIn ? "/create" : "/login"}>
-          <li className={`leftbar-link ${isActive('/create') || isActive('/login') ? 'active' : ''}`}>Create Post</li>
+          <li className={`leftbar-link ${isActive('/create') || isActive('/login') ? 'active' : ''}`}> ✍️ Create Post</li>
         </Link>
         <Link to="/popular">
-          <li className={`leftbar-link ${isActive('/popular') ? 'active' : ''}`}>Popular</li>
+          <li className={`leftbar-link ${isActive('/popular') ? 'active' : ''}`}> 📈 Popular</li>
         </Link>
         <Link to="/newest">
-          <li className={`leftbar-link ${isActive('/newest') ? 'active' : ''}`}>Recent Posts</li>
+          <li className={`leftbar-link ${isActive('/newest') ? 'active' : ''}`}> ⌛ Recent Posts</li>
         </Link>
         <hr className='leftbar-hr' />
         <li>
-          Communities
+          🤝 Communities
         </li>
       </ul>
     </div>

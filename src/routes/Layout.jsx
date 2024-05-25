@@ -6,7 +6,6 @@ import { useTheme } from './Theme';
 import { supabase } from '../client.js'
 import SearchBar from "../components/SearchBar.jsx";
 import LeftBar from "../components/LeftBar.jsx";
-import RightBar from "../components/RightBar.jsx"
 
 const Layout = () => {
     const { searchQuery, setSearchQuery } = useContext(SearchQueryContext);
@@ -15,41 +14,59 @@ const Layout = () => {
     const [isSignedIn, setIsSignedIn] = useState();
     const [showLeftBar, setShowLeftBar] = useState(false);
 
-      useEffect(() => {
+    useEffect(() => {
         const getUserData = async () => { 
             try {
                 const { data: { user } } = await supabase.auth.getUser();
-                localStorage.setItem('user', JSON.stringify(user));
-                setUserInfo(user);
-                
-                // retrieves user from local storage
-                // const userr = JSON.parse(localStorage.getItem('user'));
-                // console.log(userr); 
+                if (user) {
+                    localStorage.setItem('user', JSON.stringify(user));
+                    setUserInfo(user);
+                    setIsSignedIn(true); 
+    
+                    const { data: existingUser, error: existingUserError } = await supabase
+                        .from('accounts')
+                        .select('*')
+                        .eq('account_id', user.id)
+                        .maybeSingle();
+    
+                    if (existingUserError) throw existingUserError;
+    
+                    if (!existingUser) {
+                        const { data, error: insertError } = await supabase
+                            .from('accounts')
+                            .insert([{ id: Date.now(), account_id: user.id, email: user.email, post_count: 0, comments_count: 0, nickname: user.email.split('@')[0] }])
+                            .select('*')
+                            .single();
+                        
+                        if (insertError) throw insertError;
 
+                        localStorage.setItem('account_info', JSON.stringify(data));
+                    } else {
+                        localStorage.setItem('account_info', JSON.stringify(existingUser));
+                    }
+                }
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
-        }
+        };
+
         getUserData();
     }, []);
+    
 
 
     useEffect(() => {
-        if (!userInfo) {
-            setIsSignedIn(false);
-        } else {
-            setIsSignedIn(true);
+        if (!isSignedIn) {
+            setUserInfo({});
         }
-    }, [userInfo]);
-
+    }, [isSignedIn]);
+    
     async function signOut() {
         await supabase.auth.signOut();
         setIsSignedIn(false);
-        setUserInfo({});
         localStorage.clear();
         window.location = "/";
-     }
-    
+    }
       
     return (
     <>
@@ -58,10 +75,6 @@ const Layout = () => {
             <LeftBar/>
         </div>
         {showLeftBar && <div className="slide-in leftbar-slide"><LeftBar/></div>}
-
-        {/* <div className="rightbar-container">
-            <RightBar/>
-        </div> */}
 
         <div className="topbar">
             <nav>
@@ -80,8 +93,8 @@ const Layout = () => {
                 </li>
 
                 <li className="home-link link" key="home-button">
-                <Link style={{ textDecoration: "none", fontWeight: "600"}} to="/">
-                    Girl Lobby
+                <Link style={{ textDecoration: "none", fontWeight: "800", color: "#c77268"}} to="/">
+                🚀 Girl Lobby
                 </Link>
                 </li>
 
@@ -125,7 +138,7 @@ const Layout = () => {
                         <ul className="dropdown-point">
                             <li><span onClick={() => signOut()} className="dropdown-link">Log out</span></li>
                             <hr />
-                            <li><Link to={`/profile/${JSON.parse(localStorage.getItem(`user`))?.id ?? 'defaultId'}`}><span className="dropdown-link">Profile</span></Link></li>
+                            <li><Link to={`/profile/${JSON.parse(localStorage.getItem(`account_info`))?.nickname ?? 'defaultId'}`}><span className="dropdown-link">Profile</span></Link></li>
                         </ul>
 
                     </li>

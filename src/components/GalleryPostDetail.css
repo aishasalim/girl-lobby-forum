@@ -34,12 +34,12 @@
 }
 
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 690px) {
   .ghost-searchbar {
    margin: 3em 0;
   }
 }
-@media (min-width: 620px) {
+@media (min-width: 690px) {
   .ghost-searchbar input[type="text"] {
     display: none;
   }

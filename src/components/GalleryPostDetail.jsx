@@ -45,7 +45,7 @@ const GalleryPostDetail = () => {
                 <hr/>
                 {posts && posts.length > 0 ?
                     posts.map((post) => 
-                        <Card key={post.id} id={String(post.id)} title={post.title} likes={post.likes} created_at={post.created_at} author={post.author} />
+                        <Card key={post.id} id={String(post.id)} title={post.title} likes={post.likes} created_at={post.created_at} author_nickname={post.author_nickname} />
                     ) : 
                     <h2>No Posts Yet 😞</h2>
                 }
