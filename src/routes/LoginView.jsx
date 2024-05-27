@@ -47,7 +47,7 @@ const LoginView = () => {
       
 
     const signInWithGoogle = async () => {
-        const { data, error } = await supabase.auth.signInWithOAuth({
+        await supabase.auth.signInWithOAuth({
             provider: 'google',
             options: {
               redirectTo: 'https://lambent-flan-5d68f6.netlify.app/success'
@@ -64,7 +64,7 @@ const LoginView = () => {
     }
 
     const login = async (email, password) => {
-        const {  data, error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
             email: email,
             password: password,
         });
@@ -107,12 +107,6 @@ const LoginView = () => {
                 <br /><input type="text" placeholder="email" name="email" onChange={handleChange} /><br />
                 <input type="password" placeholder="password" name="password" onChange={handleChange} /><br />
                 <button className="submit" onClick={loginUser}>Submit</button>
-
-                    <p>Or use Google to sign in</p>
-                    <button onClick={signInWithGoogle} className="google-button">
-                        <img src={googleIcon} alt="Google Logo" width="25px"/>
-                            Sign in with Google
-                    </button>
                 </div>
 
                 <div className="SignUp_form" style={{ display: activeButton === 'signUp' ? 'flex' : 'none' }}>
@@ -120,13 +114,15 @@ const LoginView = () => {
                     <input type="email" placeholder="E-Mail" name="email" onChange={handleChange} /><br />
                     <input type="password" placeholder="Password" name="password" onChange={handleChange} /><br />
                     <button className="submit" onClick={createAccount}>Submit</button>
-                   
-                    <p>Or use Google to sign in</p>
-                    <button onClick={signInWithGoogle} className="google-button">
-                        <img src={googleIcon} alt="Google Logo" width="25px"/>
-                            Sign in with Google
-                    </button>
+
                 </div>
+
+                <p>Or use Google to sign in</p>
+                <button onClick={signInWithGoogle} className="google-button">
+                    <img src={googleIcon} className="google-icon" alt="Google Logo" width="25px"/>
+                    Sign in with Google
+                </button>
+               
             </div>
         </div>
         </>

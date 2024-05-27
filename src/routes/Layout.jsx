@@ -79,8 +79,8 @@ const Layout = () => {
         <div className="topbar">
             <nav>
             <ul>
-                <li className="menubar" style={{ marginTop: "7px", width: "55px"}} >
-                    <svg onClick={() => setShowLeftBar(!showLeftBar)} fill={darkMode ? "rgba(255, 255, 255, 0.87)" : "#000000" } version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" 
+                <li onClick={() => setShowLeftBar(!showLeftBar)} className="menubar" style={{ marginTop: "7px", width: "55px"}} >
+                    <svg fill={darkMode ? "rgba(255, 255, 255, 0.87)" : "#000000" } version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" 
                         width="20px" height="20px" viewBox="0 0 24.75 24.75" xmlSpace="preserve"
                         >
                     <g>

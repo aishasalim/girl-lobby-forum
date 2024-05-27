@@ -13,7 +13,8 @@
 .dark .post-container:hover h3,  
 .dark .post-container:hover div,
 .dark .post-container:hover span,
-.dark .post-container:hover svg {
+.dark .post-container:hover svg, 
+.dark .post-container:hover .link-to-profile {
   background-color: #353535;
 }
 

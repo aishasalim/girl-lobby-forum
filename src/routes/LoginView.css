@@ -20,6 +20,9 @@
     max-width: 400px;
     margin: auto;
 }
+.dark .login-card{
+    border: 1px solid var(--white-color);
+}
 
 .buttons{
 	display: flex;
@@ -63,12 +66,13 @@
     gap: 5px; 
     cursor: pointer;
     justify-content: center;
+    margin-bottom: 2.5em;
 }
 
 .login-container .login_form{
 	display: flex;
 	flex-direction: column;
-    margin: 2em 0;
+    margin-top: 2em;
 }
 
 .login-container .login_form input{
@@ -79,7 +83,7 @@
 .login-container .SignUp_form{
 	display: none;
 	flex-direction: column;
-    margin: 2em 0;
+    margin-top: 2em;
 }
 
 .login-container .SignUp_form input{
@@ -92,21 +96,34 @@
 }
 
 .buttons .btn.inactive.login {
-    color: var(--background-color);
-    background-color: var(--color);
+    color: var(--white-color);
+    background-color: var(--black-color);
     border-top-left-radius: 12px;
 }
 
+.dark .google-icon{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 .buttons .btn.inactive.SignUp {
-    color: var(--background-color);
-    background-color: var(--color);
+    color: var(--white-color);
+    background-color: var(--black-color);
     border-top-right-radius: 12px;
 }
 
 .dark .buttons .btn.inactive {
-    background-color: var(--background-color);
+    background-color: var(--white-color);
 }
 
 .dark .buttons .btn.inactive span {
-    color: var(--color);
+    color: var(--black-color);
+}
+
+.dark input {
+    color: var(--black-color);
+    background-color: var(--white-color);
+}
+
+.dark .btn.inactive span {
+    background-color: var(--white-color);
 }
