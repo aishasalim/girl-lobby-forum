@@ -1,63 +1,11 @@
-/* .login-card{
-    border-radius: 15px;
-    border: 1px solid #242424; 
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    margin: auto;
-    max-width: 400px;
-} */
 
-
-.login-card{
+.login-container{
     height: auto;
-    border: 1px solid #242424; 
-    border-radius: 15px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 400px;
     margin: auto;
-}
-.dark .login-card{
-    border: 1px solid var(--white-color);
-}
-
-.buttons{
-	display: flex;
-	width: 100%;
-	flex-direction: row;
-	justify-content: space-around;
-	height: 50px;
-	float: left;
-}
-.buttons .btn{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 20px;
-	width: 50%;
-	cursor: pointer;
-}
-
-
-#chbox:checked ~ .SignUp_form{
-	display: flex;
-}
-
-#chbox:checked ~ .login_form{
-	display: none;
-}
-
-#chbox:checked + .layer{
-	left: 50%;
-}
-#chbox:checked ~ .layer2{
-	left: 50%;
-}
-#chbox{
-	display: none;
 }
 
 .google-button {
@@ -69,61 +17,6 @@
     margin-bottom: 2.5em;
 }
 
-.login-container .login_form{
-	display: flex;
-	flex-direction: column;
-    margin-top: 2em;
-}
-
-.login-container .login_form input{
-    margin: 0;
-    width: 250px;
-}
-
-.login-container .SignUp_form{
-	display: none;
-	flex-direction: column;
-    margin-top: 2em;
-}
-
-.login-container .SignUp_form input{
-	margin: 0;
-    width: 250px;
-}
-
-.buttons .btn.inactive {
-    transition: background-color 0.3s ease;
-}
-
-.buttons .btn.inactive.login {
-    color: var(--white-color);
-    background-color: var(--black-color);
-    border-top-left-radius: 12px;
-}
-
 .dark .google-icon{
     background-color: rgba(255, 255, 255, 0.1);
-}
-
-.buttons .btn.inactive.SignUp {
-    color: var(--white-color);
-    background-color: var(--black-color);
-    border-top-right-radius: 12px;
-}
-
-.dark .buttons .btn.inactive {
-    background-color: var(--white-color);
-}
-
-.dark .buttons .btn.inactive span {
-    color: var(--black-color);
-}
-
-.dark input {
-    color: var(--black-color);
-    background-color: var(--white-color);
-}
-
-.dark .btn.inactive span {
-    background-color: var(--white-color);
 }

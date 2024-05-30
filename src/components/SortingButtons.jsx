@@ -7,7 +7,7 @@ const SortingButtons = () => {
     return (
         <div className="sorting-buttons">
             <h3 className='order-by'>Order by: </h3>
-            <Link to="/newest" className= 'sort-by-date'>
+            <Link to="/" className= 'sort-by-date'>
                 <button>Newest</button>
             </Link>
             <Link to="/oldest" className='sort-by-oldest'>

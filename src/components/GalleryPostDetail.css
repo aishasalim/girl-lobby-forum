@@ -33,6 +33,9 @@
 .sort-by-date, .sort-by-oldest, .sort-by-name {
   width: 120px;
 }
+.no-posts-sing{
+  margin-top: 10em;
+}
 
 
 @media screen and (max-width: 690px) {

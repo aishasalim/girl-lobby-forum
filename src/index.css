@@ -45,6 +45,11 @@ a {
   text-decoration: inherit;
   width: 100%;
 }
+form input, form textarea {
+  padding: 8px;
+  margin-top: 5px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
 
 h1 {
   font-size: 3.2em;

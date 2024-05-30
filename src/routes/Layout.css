@@ -118,7 +118,7 @@ input:checked + .slider:before {
   display: none;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.87);
-  border: 1px solid #242424; 
+  border: 1px solid #ccc; 
   border-radius: 8px;
   right: 0;
   width: 100px;
@@ -140,10 +140,15 @@ input:checked + .slider:before {
 
 .dark .dropdown .dropdown-point {
   background-color: #242424; 
-  border: 1px solid rgba(255, 255, 255, 0.87); 
+  border: 1px solid #ccc; 
 }
 .dark .dropdown .dropdown-point span {
   color: rgba(255, 255, 255, 0.87);
+}
+
+.avatar {
+  border-radius: 50%;
+  border: #c77268 3px solid;
 }
 
 

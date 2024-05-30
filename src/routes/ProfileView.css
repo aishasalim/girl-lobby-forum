@@ -1,5 +1,5 @@
 .profile-container{
-    margin-right: 290px;
+    margin-right: 320px;
     margin-top: 3.5em;
 }
 .profile-rb-container {
@@ -20,7 +20,7 @@
     margin-bottom: 1em;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1100px) {
     .rightbar {
         display: none;
     }
@@ -29,7 +29,7 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1100px) {
     .profile-rb-container {
         display: none;
     }

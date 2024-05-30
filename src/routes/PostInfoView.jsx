@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../client';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./PostInfoView.css";
 
 import Comments from '../components/Comments';
@@ -12,12 +12,18 @@ const PostInfoView = () => {
   const { id } = useParams();
   const [post, setPost] = useState({ title: "", text: "", img: "", likes: ""});
   const [loading, setLoading] = useState(true);
+  const account_info = JSON.parse(localStorage.getItem('account_info'));
+  const navigate = useNavigate();
   
   const user = JSON.parse(localStorage.getItem('user'));
   const userEmail = user ? user.email : null;
 
   useEffect(() => {
     const fetchPost = async () => {
+        if (isNaN(id)) {
+            navigate('/not-found');
+            return;
+        }
         try {
             const { data: postData, error: postError } = await supabase
                 .from('posts')
@@ -38,7 +44,7 @@ const PostInfoView = () => {
     };
 
     fetchPost();
-}, [id, user]);
+}, [id, user, navigate]);
 
   
 
@@ -105,6 +111,16 @@ const { data: likeData } = await supabase
             .delete()
             .eq('id', id);
         if (!error) {
+            // Decrease post count
+            const newPostCount = account_info.post_count - 1;
+            // Update accounts table with the new post count
+            await supabase
+              .from('accounts')
+              .update({ post_count: newPostCount })
+              .eq('account_id', account_info.account_id);
+            // Update localStorage account_info
+            const updatedAccountInfo = { ...account_info, post_count: newPostCount };
+            localStorage.setItem('account_info', JSON.stringify(updatedAccountInfo));
             alert('Post deleted successfully');
             window.location = "/";
         } else {

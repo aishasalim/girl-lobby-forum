@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import './SideBars.css';
-import { useEffect, useState } from 'react';
+import PopUpForm from './PopUpForm.jsx'; 
 
 const LeftBar = () => {
-  const [isSignedIn, setIsSignedIn] = useState();
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const userInfo = JSON.parse(localStorage.getItem('user'));
   const location = useLocation(); 
                
   useEffect(() => {
-    if (!userInfo) {
-      setIsSignedIn(false);
-    } else {
-        setIsSignedIn(true);
-    }
-    }, [userInfo]);
+    setIsSignedIn(!!userInfo);
+  }, [userInfo]);
 
-    const isActive = (path) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
+  const handleAddCommunityClick = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   return (
     <div className='leftbar'>
@@ -31,14 +35,21 @@ const LeftBar = () => {
         <Link to="/popular">
           <li className={`leftbar-link ${isActive('/popular') ? 'active' : ''}`}> 📈 Popular</li>
         </Link>
-        <Link to="/newest">
-          <li className={`leftbar-link ${isActive('/newest') ? 'active' : ''}`}> ⌛ Recent Posts</li>
+        <Link to="/oldest">
+          <li className={`leftbar-link ${isActive('/oldest') ? 'active' : ''}`}> ⌛ Oldest Posts</li>
         </Link>
         <hr className='leftbar-hr' />
-        <li>
+        <li className='community-section'>
           🤝 Communities
         </li>
+        <ul className='community-list'>
+          <li className='add-community' onClick={handleAddCommunityClick}>🖋️ Add Community</li>
+
+    
+          {/* <li className='community-name'>Community One</li> */}
+        </ul>
       </ul>
+      <PopUpForm isOpen={isPopupOpen} onClose={closePopup} />
     </div>
   );
 };
