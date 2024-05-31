@@ -14,6 +14,7 @@ import LoginView from './routes/LoginView.jsx';
 import SuccessView from './routes/SuccessView.jsx';
 import ProfileView from './routes/ProfileView.jsx';
 import NotFound from './routes/NotFound.jsx';
+import CommunityView from './routes/CommunityView.jsx';
 
 import OldestPosts from './routes/OldestPosts.jsx';
 import PopularPosts from './routes/PopularPosts.jsx';
@@ -37,6 +38,7 @@ const Main = () => {
             <Route path="profile/:nickname" element={<ProfileView />} />
             <Route path="/oldest" element={<OldestPosts />} />
             <Route path="/popular" element={<PopularPosts />} />
+            <Route path="/community/:name/:id" element={<CommunityView />} />
           </Route>
         </Routes>
       </SearchQueryContext.Provider>

@@ -20,8 +20,9 @@
   width: 85%;
 }
 .leftbar li {
-  padding: 2em 0em 2em 1.5em;
+  padding: 1em 0em 1em 1.5em;
   text-align: left;
+  font-weight: 500;
 }
 .leftbar-link {
   margin-bottom: 10px;
@@ -42,20 +43,20 @@
   border-radius: 8px;
 }
 
-ul .community-list{
-  padding: 0;
-}
-li.add-community{
-  padding: 0em 0em 0em 1.5em;
-}
 li.add-community:hover{
   cursor: pointer;
   text-decoration: underline;
 }
-
-li.community-name{
-  padding: 0.5em 0em 0.5em 1.5em;
+li.community-link:hover{
+  cursor: pointer;
+  background-color: #e8e6e6;
+  border-radius: 8px;
 }
+
+ul.community-list{
+  padding: 0;
+}
+
 li.circle{
   border: #353535 solid 1px;
   height: 20px;

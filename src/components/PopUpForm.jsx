@@ -17,16 +17,24 @@ const PopUpForm = ({ isOpen, onClose }) => {
           [name]: value,
         }));
     };
+
+    function toSingleLowerCaseWord(str) {
+      return str
+          .toLowerCase()
+          .split(' ')
+          .join('');
+  }
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
           const { error } = await supabase
             .from('communities')
-            .insert([{ id: Date.now(), name: formData.name, description: formData.description, post_count: 0 }]);
+            .insert([{ id: Date.now(), name: formData.name, description: formData.description, post_count: 0, lowercase_name: toSingleLowerCaseWord(formData.name) }]);
           if (error) throw error;
           setFormData({ name: '', description: '' });
           onClose();
+          window.location.reload();
         } catch (error) {
           console.error('Error adding community:', error);
         }

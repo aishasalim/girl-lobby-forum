@@ -26,7 +26,7 @@ const ProfileView = () => {
                 .from('accounts')
                 .select('*')
                 .eq('nickname', nickname)
-                .single(); // Assuming there's a unique constraint on the nickname
+                .single(); 
 
             if (error) {
                 console.error("Error fetching account info:", error);
@@ -68,7 +68,10 @@ const ProfileView = () => {
             </div>
             <div className="profile-nickname-container">
                 {userAccountInfo?.account_avatar ? (
-                    <img src={userAccountInfo?.account_avatar} alt="avatar" className="avatar" />
+                    <img src={userAccountInfo.account_avatar} 
+                    alt="avatar" 
+                    className="avatar" 
+                     />
                     ) : (
                     <svg width="120px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{marginTop: "5px"}}>
                                     <path fill="none" d="M12.12 12.78C12.05 12.77 11.96 12.77 11.88 12.78C10.12 12.72 8.71997 11.28 8.71997 9.50998C8.71997 7.69998 10.18 6.22998 12 6.22998C13.81 6.22998 15.28 7.69998 15.28 9.50998C15.27 11.28 13.88 12.72 12.12 12.78Z" stroke={darkMode ? "rgba(255, 255, 255, 0.87)" : "#000" } strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

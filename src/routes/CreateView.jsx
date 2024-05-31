@@ -4,7 +4,7 @@ import { supabase } from '../client.js';
 import PostForm from '../components/PostForm.jsx';
 
 const CreateView = () => {
-  const [post, setPost] = useState({ title: "", text: "", img: "", likes: 0, author: "", author_id: "", author_nickname: "",});
+  const [post, setPost] = useState({ title: "", text: "", img: "", likes: 0, author: "", author_id: "", author_nickname: "", community: ""});
   const [fileData, setFileData] = useState(null);
 
   const account_info = JSON.parse(localStorage.getItem('account_info'));
@@ -19,7 +19,6 @@ const CreateView = () => {
       reader.readAsDataURL(file);
     }
   };
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -49,6 +48,7 @@ const CreateView = () => {
         author_id: account_info.account_id,
         author_nickname: account_info.nickname,
         likes: 0,
+        community: post.community,
       })
       .select();
 
@@ -66,7 +66,7 @@ const CreateView = () => {
     localStorage.setItem('account_info', JSON.stringify(updatedAccountInfo));
 
     // Reset post and file data
-    setPost({ title: "", text: "", img: "", likes: 0, author: "" });
+    setPost({ title: "", text: "", img: "", likes: 0, author: "", community: "" });
     setFileData(null);
   
     window.location = "/";

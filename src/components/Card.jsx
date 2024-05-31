@@ -12,12 +12,15 @@ const Card = (props) => {
     title: PropTypes.string.isRequired,
     likes: PropTypes.number,
     author_nickname: PropTypes.string.isRequired, 
+    community: PropTypes.string.isRequired, 
+
   };
   return (
     <>
     <Link style={{ color: "#242424", textDecoration: "none"}} to={'/' + props.id}> 
       <div className="post-container">
      <p><Link to={`/profile/${props.author_nickname}`} className='link-to-profile'>{ props.author_nickname } </Link></p>
+     <p>{props.community}</p>
         
         <h3>{props.title}</h3>
         <div style={{ display: 'flex', justifyContent: 'space-between', height: '45px', gap: '25px', alignItems: 'flex-end' }}>

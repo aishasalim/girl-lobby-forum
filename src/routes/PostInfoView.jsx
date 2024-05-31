@@ -145,7 +145,7 @@ const { data: likeData } = await supabase
                 </p>
               <h2>{post.title}</h2>
               {post.img ? (
-                <img src={post.img.startsWith('http') ? post.img : `data:image/jpeg;base64,${post.img}`} alt={post.title} width="50%" style={{borderRadius: "10px"}}/>
+                <img src={post.img.startsWith('http') ? post.img : `data:image/jpeg;base64,${post.img}`} alt={post.title} className='post-img' style={{borderRadius: "10px"}}/>
                 ) : null}
               <p>{post.text}</p>
           </div>
