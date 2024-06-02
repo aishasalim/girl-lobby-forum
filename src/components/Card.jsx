@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import TimeAgo from "./TimeAgo";
 import { useTheme } from '../routes/Theme'; 
+import { supabase } from '../client'; 
 
 const Card = (props) => {
   const { darkMode } = useTheme();
-  Card.propTypes = {
-    id: PropTypes.string.isRequired,
-    created_at: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    likes: PropTypes.number,
-    author_nickname: PropTypes.string.isRequired, 
-    community: PropTypes.string.isRequired, 
+  const [communityName, setCommunityName] = useState('');
 
-  };
+  useEffect(() => {
+    const fetchCommunityName = async () => {
+      if (props.community && props.community !== "nocommunity") {
+        const { data, error } = await supabase
+          .from('communities')
+          .select('lowercase_name')
+          .eq('id', props.community)
+          .single();
+        
+        if (error) {
+          console.error('Error fetching community name:', error.message);
+        } else {
+          setCommunityName(data.lowercase_name);
+        }
+      }
+    };
+
+    fetchCommunityName();
+  }, [props.community]);
+
   return (
     <>
     <Link style={{ color: "#242424", textDecoration: "none"}} to={'/' + props.id}> 
       <div className="post-container">
-     <p><Link to={`/profile/${props.author_nickname}`} className='link-to-profile'>{ props.author_nickname } </Link></p>
-     <p>{props.community}</p>
+      <div style={{ display: 'flex', justifyContent: 'space-between', height: '45px', gap: '25px', alignItems: 'flex-end' }}>
+        <p><Link to={`/profile/${props.author_nickname}`} className='link-to-profile'>{ props.author_nickname } </Link></p>
         
+        {communityName && <p>community/{communityName}</p>}
+      </div> 
         <h3>{props.title}</h3>
         <div style={{ display: 'flex', justifyContent: 'space-between', height: '45px', gap: '25px', alignItems: 'flex-end' }}>
           <div >
@@ -39,6 +55,15 @@ const Card = (props) => {
     <hr />
     </>
   );
+};
+Card.propTypes = {
+  id: PropTypes.string.isRequired,
+  created_at: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  likes: PropTypes.number,
+  author_nickname: PropTypes.string.isRequired, 
+  community: PropTypes.string.isRequired, 
+
 };
 
 export default Card;

@@ -111,7 +111,7 @@ const { data: likeData } = await supabase
             .delete()
             .eq('id', id);
         if (!error) {
-            // Decrease post count
+            // Decrease post count in profile
             const newPostCount = account_info.post_count - 1;
             // Update accounts table with the new post count
             await supabase
@@ -121,6 +121,25 @@ const { data: likeData } = await supabase
             // Update localStorage account_info
             const updatedAccountInfo = { ...account_info, post_count: newPostCount };
             localStorage.setItem('account_info', JSON.stringify(updatedAccountInfo));
+            
+            // Decrement post count of the community
+            if (post.community && post.community !== "nocommunity") {
+              // Fetch current post count for the community
+              const { data: communityData, error: communityError } = await supabase
+                  .from('communities')
+                  .select('post_count')
+                  .eq('id', post.community)
+                  .single();
+
+              if (communityError) {
+                  console.error('Error fetching community post count:', communityError.message);
+              } else {
+                  const newCommunityPostCount = communityData.post_count - 1;
+                  await supabase
+                      .from('communities')
+                      .update({ post_count: newCommunityPostCount })
+                      .eq('id', post.community);
+              } }
             alert('Post deleted successfully');
             window.location = "/";
         } else {

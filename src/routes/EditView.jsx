@@ -102,6 +102,7 @@ const EditView = () => {
                 title={post.title}
                 text={post.text}
                 img={post.img}
+                isEdit={true}  
             />
 
         </div>
