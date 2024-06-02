@@ -72,6 +72,7 @@ const LeftBar = () => {
       </ul>
       <PopUpForm isOpen={isPopupOpen} onClose={closePopup} />
     </div>
+    
   );
 };
 

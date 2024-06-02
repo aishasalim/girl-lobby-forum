@@ -91,8 +91,8 @@ const ProfileView = () => {
             </div>
 
             {currentAccountInfo?.nickname === userAccountInfo?.nickname && (
-                <Link style={{width: "155px", justifyContent: 'left', display: 'flex'}} to="/create">
-                    <button style={{borderRadius: "25px", marginTop: "10px"}}> ✍️ Create Post</button>
+                <Link style={{width: "170px", justifyContent: 'left', display: 'flex'}} to="/create">
+                    <button style={{borderRadius: "25px", marginTop: "10px", width: "170px"}}> ✍️ Create Post</button>
                 </Link>
             )}
             <div className="overview-container">

@@ -8,6 +8,7 @@
     left: 0;
     border-right: 1px solid #ccc;
     padding: 5em 0;
+    overflow-y: auto;
 }
 
 .leftbar ul , .rightbar ul {

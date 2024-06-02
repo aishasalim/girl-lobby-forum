@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../client.js';
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Card from '../components/Card';
+import './CommunityView.css';
 
 const CommunityView = () => {
     const [community, setCommunity] = useState([]);
@@ -42,11 +44,16 @@ const CommunityView = () => {
         }, []);
   return (
     <>
-    <div style={{textAlign:"left", margin: "7em 3em 2em"}}>
+    <div className='community-top-container'>
+    <div style={{textAlign:"left", marginTop: "7em"}}>
         <h2>{community.lowercase_name}</h2>
         <p>{community.description}</p>
-        <p style={{fontWeight: "600"}}>{community.post_count} post</p>      
+        <p style={{fontWeight: "600"}}>{community.post_count} post</p>  
     </div>
+    <Link className='community-create-button' to="/create">
+      <button style={{borderRadius: "25px", width: "170px"}}> ✍️ Create Post</button>
+    </Link>  
+    </div> 
     <hr />
 
     <div className="ReadPosts">

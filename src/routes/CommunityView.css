@@ -1,0 +1,12 @@
+.community-top-container{
+    display: flex;
+    justify-content: space-between;
+    height:200px;
+    margin-top: 4em;
+    gap: 25px;
+    align-items: flex-end;
+}
+.community-create-button{
+    width: 170px;
+    margin: 5em 0;
+}
