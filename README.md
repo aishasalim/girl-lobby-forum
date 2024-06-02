@@ -15,7 +15,3 @@ This is the <a href="https://lambent-flan-5d68f6.netlify.app/">LINK</a>
 - [X] User can see popular/newest/oldest posts
 - [X] Users can add posts to communities they can create, idea took from Reddit. 
 - [X] Dark and Light mode available
-
-## Video Walkthrough
-This is a long walkthrough!
-
